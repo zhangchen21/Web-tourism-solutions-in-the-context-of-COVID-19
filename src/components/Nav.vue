@@ -2,7 +2,7 @@
     <nav class="nav">
         <div class="nav-menu flex-row">
             <div class="nav-brand">
-                <a href="#" @click="login">登录</a>
+                <router-link to="/BeforeLog" id="nav-a-3">登录</router-link>
             </div>
             <ul class="nav-items" @click="changePage">
                 <li class="nav-link" :class="ifThisPage()[0]">
@@ -12,7 +12,7 @@
                     <router-link to="/About" id="nav-a-1">关于我们</router-link>
                 </li>
                 <li class="nav-link" :class="ifThisPage()[2]">
-                    <a href="#" @click="login" id="nav-a-2">更多</a>
+                    <router-link to="/More" id="nav-a-2">更多</router-link>
                 </li>
             </ul>
         </div>
@@ -28,12 +28,6 @@ export default {
         }
     },
     methods: {
-        login(){
-            alert("登录界面")
-        },
-        getMore(){
-          alert("更多")
-        },
         ifThisPage(){
             let tmp = [];
             for(let i=0; i<3; i++){

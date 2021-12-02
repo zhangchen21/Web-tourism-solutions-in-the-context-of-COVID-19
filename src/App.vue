@@ -1,23 +1,17 @@
 <template>
     <div id="app">
         <Nav/>
-        <div id="home">
-            <router-view></router-view>
-        </div>
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
 import Nav from './components/Nav.vue'
-// import Main from './components/Main.vue'
-// import About from './components/About.vue'
 
 export default {
   name: 'App',
   components: {
     Nav,
-    // Main,
-    // About,
   }
 }
 </script>
