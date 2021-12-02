@@ -48,6 +48,10 @@ export default {
     border: 10px;
     padding: 20px 50px;
     border-radius: 20px;
+    transition: all 0.5s;
+}
+.login-box:hover {
+    transform: scale(1.1);
 }
 .login-box h1{
     width: 100%;
@@ -92,6 +96,11 @@ export default {
     background: linear-gradient(120deg,#a6c0fe 0%,#f68084 100%);
     border-radius: 25px;
     cursor: pointer;
+}
+.login-box .input-box .input-btn:hover{
+    background: transparent;
+    color: white;
+    border: 1px solid white;
 }
 .login-box .input-box .sign-up{
     width: 100%;

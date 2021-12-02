@@ -43,7 +43,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     background-color: #161623;
 }
 #about::before{
@@ -70,12 +70,11 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1200px;
     flex-wrap: wrap;
     z-index: 1;
 }
 .container .card{
-    position: relative;
+    /* position: relative; */
     width: 280px;
     height: 400px;
     margin: 30px;
@@ -89,6 +88,10 @@ export default {
     border-top: rgba(255,255,255,0.5) 1px solid;
     border-left: rgba(255,255,255,0.5) 1px solid;
     backdrop-filter: blur(5px);
+    transition: all 0.5s;
+}
+.container .card:hover {
+    transform: scale(1.1);
 }
 .container .card .content{
     padding: 20px;
@@ -104,7 +107,6 @@ export default {
     color: #fff;
 }
 .container .card .content a{
-    position: relative;
     display: inline-block;
     color: #000;
     text-decoration: none;

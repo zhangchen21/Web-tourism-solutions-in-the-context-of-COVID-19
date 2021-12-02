@@ -1,11 +1,11 @@
 <template>
     <main>
         <section class='site-title'>
-            <div class="site-background">
-                <h2>随时 & 随地</h2>
-                <h1>都要盛装出席</h1>
-                <button class='btn1' @click="explore">探索</button>
-            </div>
+        <div class="site-background">
+            <h2>随时 & 随地</h2>
+            <h1>都要盛装出席</h1>
+            <button class='btn1' @click="explore">探索</button>
+        </div>
         </section>
     </main>
 </template>
@@ -42,7 +42,7 @@ h2{
     cursor: pointer;
 }
 .site-title{
-    height: 90vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
 }
@@ -57,8 +57,10 @@ h2{
 .site-title .btn1{
     margin: 1.8rem;
     background-image: var(--sky);
+    transition: all 0.5s;
 }
 .site-title .btn1:hover{
+    transform: scale(1.1);
     background: transparent;
     color: var(--white);
     border: 1px solid var(--wihte);

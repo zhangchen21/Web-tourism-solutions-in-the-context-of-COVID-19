@@ -1,10 +1,10 @@
 <template>
-    <el-empty :image-size="400"></el-empty>
+  
 </template>
 
 <script>
 export default {
-    name: "More"
+    name: "City"
 }
 </script>
 

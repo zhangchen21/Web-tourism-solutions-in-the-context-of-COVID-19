@@ -25,7 +25,7 @@ export default {
 html,body{
     margin: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 /******************全局变量******************/
 :root{
