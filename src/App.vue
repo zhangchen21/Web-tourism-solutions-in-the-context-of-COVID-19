@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <Nav/>
+        <div class="Nav"><Nav/></div>
         <router-view></router-view>
     </div>
 </template>
@@ -17,7 +17,6 @@ export default {
 </script>
 
 <style>
-/********** 字体 *********/
 @font-face {
     font-family: Abel;
     src: url('./fonts/Abel/Abel-Regular.ttf');
@@ -25,14 +24,18 @@ export default {
 html,body{
     margin: 0;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow-x: hidden;
 }
-/******************全局变量******************/
 :root{
     --Abel:'Abel',cursive;
 }
-/*****************布局*****************/
 #app {
     font-family: var(--Abel);
+}
+.Nav {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 999;
 }
 </style>

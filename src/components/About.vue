@@ -43,27 +43,9 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #161623;
-}
-#about::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:linear-gradient(rgb(75, 11, 105),rgb(136, 59, 236));
-    clip-path: circle(30% at right 70%);
-}
-#about::after{
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:linear-gradient(#2196f3,#e91e63);
-    clip-path: circle(20% at 10% 10%);
+    height: 92vh;
+    background-color: #fff;
+    overflow: hidden;
 }
 .container{
     position: relative;
@@ -74,7 +56,6 @@ export default {
     z-index: 1;
 }
 .container .card{
-    /* position: relative; */
     width: 280px;
     height: 400px;
     margin: 30px;
@@ -99,12 +80,12 @@ export default {
 }
 .container .card .content h3{
     font-size: 1.8em;
-    color: #fff;
+    color: black;
 }
 .container .card .content p{
     font-size: 1em;
     font-weight: 300;
-    color: #fff;
+    color: blcak;
 }
 .container .card .content a{
     display: inline-block;

@@ -47,10 +47,13 @@ export default {
 <style scoped>
 nav{
     --gray:#ccc;
+    --midnight:#104f55;
+    --white: #fff;
 }
 a{
     text-decoration: none;
-    color: var(--gray);
+    color: #354954;
+    font-weight:bold
 }
 ul{
     list-style-type: none;
@@ -61,38 +64,40 @@ ul{
     flex-wrap: wrap;
 }
 .nav{
-    /* background-color: rgba(85, 84, 84, 0.75); */
-    background-color: rgb(0, 0, 0); 
-    box-shadow: 0px 3px 7px 0px rgb(0 0 0 / 35%);
+    background-color: #f8f8f8;; 
+    box-shadow: 0 0 1px rgba(0,0,0,0.25);
     padding: 0 1rem;
     overflow: hidden;
     color: var(--gray);
-
+    height: 8vh;
 }
 .nav-menu{
     justify-content: space-between;
     align-items: center;
 }
-.nav-brand a{
-    color: var(--gray);
+.nav .nav-menu .nav-brand a{
     font-size: 1.6rem;
-    letter-spacing: 0.1rem;
-    padding: 1rem 0;
+    font-family: var(--Lexend);
+    padding: 0.5rem 0;
     display: block;
 }
-.nav-items{
+.nav .nav-menu .nav-items{
     display: flex;
-    justify-content: right;
+    margin: 0;
 }
-.nav-link{
-    padding: 0 1rem;
+.nav .nav-menu .nav-items .nav-link{
+    padding: 1.3rem 1rem;
     font-size: 1.1rem;
+    font-family: var(--Abel);
+    position: relative;
+}
+.thispage, .nav-link:hover{
+    background-color: var(--midnight);
 }
 .thispage a{
-    border-bottom: rgb(226, 223, 223) 0.1rem solid;
+    color: #fff;
 }
-.nav-link:hover a,
-.nav-brand:hover a{
-    text-shadow: 0 0 10px #69e0ff,0 0 20px #69e0ff,0 0 40px #69e0ff;
+.nav-link:hover a {
+    color: #fff;
 }
 </style>

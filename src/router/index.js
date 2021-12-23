@@ -3,9 +3,15 @@ import Main from "../components/Main"
 import About from "../components/About"
 import More from "../components/More"
 import BeforeLog from "../components/BeforeLog"
+import City from "../components/City"
+import Xian from "../components/Xian"
 
 export default new VueRouter({
     routes: [
+        {
+            path: '/',
+            redirect: '/Main'
+        },
         {
             path: "/Main",
             component: Main
@@ -21,6 +27,20 @@ export default new VueRouter({
         {
             path: "/BeforeLog",
             component: BeforeLog
-        }
+        },
+        {
+            path: "/City",
+            component: City,
+            children: [
+                {
+                    path: '/City/',
+                    redirect: '/City/Xian'
+                },
+                {
+                    path: "/City/Xian",
+                    component: Xian
+                },
+            ]
+        },
     ]
 })

@@ -4,7 +4,10 @@
         <div class="site-background">
             <h2>随时 & 随地</h2>
             <h1>都要盛装出席</h1>
-            <button class='btn1' @click="explore">探索</button>
+            <router-link to="/City" >
+            <button class='btn1'>
+                探索
+            </button></router-link>
         </div>
         </section>
     </main>
@@ -25,7 +28,7 @@ export default {
 main{
     --wihte:#ffff;
     --sky:linear-gradient(120deg,#a1c4fd 0%,#c2e9fb 100%);
-    background: url('../assets/bg1.jpg');
+    background: url('../assets/bg.png');
     background-size: cover; 
 }
 h1{
@@ -35,6 +38,7 @@ h2{
     font-size: 1.3rem;
 }
 .btn1{
+    text-decoration: none;
     border:none;
     border-radius: 2rem;
     padding: 1rem 3rem;
@@ -62,7 +66,7 @@ h2{
 .site-title .btn1:hover{
     transform: scale(1.1);
     background: transparent;
-    color: var(--white);
+    color: var(--wihte);
     border: 1px solid var(--wihte);
 }
 </style>
