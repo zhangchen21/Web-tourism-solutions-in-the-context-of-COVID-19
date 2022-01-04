@@ -3,7 +3,6 @@ import Main from "../components/Main"
 import About from "../components/About"
 import More from "../components/More"
 import BeforeLog from "../components/BeforeLog"
-import City from "../components/City"
 import Xian from "../components/Xian"
 
 export default new VueRouter({
@@ -29,18 +28,9 @@ export default new VueRouter({
             component: BeforeLog
         },
         {
-            path: "/City",
-            component: City,
-            children: [
-                {
-                    path: '/City/',
-                    redirect: '/City/Xian'
-                },
-                {
-                    path: "/City/Xian",
-                    component: Xian
-                },
-            ]
+            path: "/Xian",
+            component: Xian
         },
+
     ]
 })

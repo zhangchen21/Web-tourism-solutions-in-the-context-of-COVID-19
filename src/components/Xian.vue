@@ -1,102 +1,183 @@
 <template>
-    <div class="noScroll">
-        <div id="xian" class="city">
-            <h1 id="title">西安</h1>
-            <div class="head">
-                <img id="cityImg" src="../assets/西安/Xian-1.jpg" alt="">
-                <div id="cityVideo">
-                    <div>
-                        <iframe src="//player.bilibili.com/player.html?aid=22595634&bvid=BV1kW411G7UU&cid=37479231&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-                    </div>
-                    <br>
-                    <div id="cityText">
-                        西安，简称“镐”，古称长安、镐京，是陕西省辖地级市、省会。西安地处关中平原中部、北濒渭河、南依秦岭，自古有着“八水润长安”之美誉，是联合国教科文组织于1981年确定的“世界历史名城”，是中华文明和中华民族重要发祥地之一，丝绸之路的起点，历史上先后有十多个王朝在此建都，丰镐都城、秦阿房宫、兵马俑，汉未央宫、长乐宫，隋大兴城，唐大明宫、兴庆宫等勾勒出“长安情结”。
-                    </div>
-                </div>    
+    <div id="xian" class="city">
+        <div class="title">
+            <h2>探索该地的隐藏景点和让人叹为观止的风景</h2>
+            <h1>千年古都，“八水润长安”</h1>
+        </div>
+        <div class="weather"> 
+            <h1>查看天气</h1>
+            <div class="date">
+                <el-date-picker
+                v-model="value2"
+                align="right"
+                type="date"
+                placeholder="选择日期"
+                :picker-options="pickerOptions">
+                </el-date-picker>
+                <div class="demonstration" @click="getWeather">确定</div>
             </div>
-            <div class="attractions">
-                <h1>景点 & 活动</h1>
-                <div class="attractionsCards">
-                    <div class="card">
-                        <div class="content">
-                            <img src="../assets/西安/大雁塔.jpg" alt="">
-                            <div id="text">
-                                <h3>大雁塔</h3>
-                                <p>
-                                    世界文化遗产、全国重点文物保护单位、国家AAAAA级旅游景区。大雁塔被视为古都西安的象征。大雁塔是8世纪为保存玄奘法师由天竺经丝绸之路带回长安的经卷佛像而建。
-                                </p>
-                            </div>    
-                            <a href="#">了解更多</a>
+            <div class="weatherCardList">
+                <div class="weatherCard" :class="day1.wea_img">
+                    <div class="cardContent">
+                        <div class="cardContent1">{{day1.tem}}</div>
+                        <div class="cardContent2">{{day1.date}}</div>
+                        <div class="cardContent2">{{day1.day}}</div>
+                        <div class="cardContent3">
+                            <div>日出 {{day1.sunrise}}</div>
+                            <div>日落 {{day1.sunset}}</div>                            
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="content">
-                            <img src="../assets/西安/大明宫.jpg" alt="">
-                            <div id="text">
-                                <h3>大明宫</h3>
-                                <p>
-                                    世界文化遗产、全国重点文物保护单位、国家AAAAA级旅游景区。大明宫是东方宫殿建筑艺术的杰出代表，被誉为丝绸之路的东方圣殿。
-                                </p>
-                            </div>
-                            <a href="#">了解更多</a>
+                </div>
+                <div class="weatherCard" :class="day2.wea_img">
+                    <div class="cardContent">
+                        <div class="cardContent1">{{day2.tem}}</div>
+                        <div class="cardContent2">{{day2.date}}</div>
+                        <div class="cardContent2">{{day2.day}}</div>
+                        <div class="cardContent3">
+                            <div>日出 {{day2.sunrise}}</div>
+                            <div>日落 {{day2.sunset}}</div>                            
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="content">
-                            <img src="../assets/西安/大唐芙蓉园.jpg" alt="">
-                            <div id="text">
-                                <h3>大唐芙蓉园</h3>
-                                <p>
-                                    国家AAAAA级旅游景区。大唐芙蓉园是首家唐文化主题公园，拥有全球幅宽最大的水幕电影，是国内最长的唐文化长廊。
-                                </p>
-                            </div>
-                            <a href="#">了解更多</a>
+                </div>
+                <div class="weatherCard" :class="day3.wea_img">
+                    <div class="cardContent">
+                        <div class="cardContent1">{{day3.tem}}</div>
+                        <div class="cardContent2">{{day3.date}}</div>
+                        <div class="cardContent2">{{day3.day}}</div>
+                        <div class="cardContent3">
+                            <div>日出 {{day3.sunrise}}</div>
+                            <div>日落 {{day3.sunset}}</div>                            
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="content">
-                            <img src="../assets/西安/秦岭野生动物园.jpg" alt="">
-                            <div id="text">
-                                <h3>秦岭野生动物园</h3>
-                                <p>
-                                    国家AAAA级旅游景区。景点位于秦岭北麓浅山地带，是集野生动物移地保护、科普教育、旅游观光、休闲度假等功能于一体的综合性园林项目。
-                                </p>
-                            </div>    
-                            <a href="#">了解更多</a>
+                </div>
+                <div class="weatherCard" :class="day4.wea_img">
+                    <div class="cardContent">
+                        <div class="cardContent1">{{day4.tem}}</div>
+                        <div class="cardContent2">{{day4.date}}</div>
+                        <div class="cardContent2">{{day4.day}}</div>
+                        <div class="cardContent3">
+                            <div>日出 {{day4.sunrise}}</div>
+                            <div>日落 {{day4.sunset}}</div>     
+                        </div>                       
+                    </div>
+                </div>
+                <div class="weatherCard" :class="day5.wea_img">
+                    <div class="cardContent">
+                        <div class="cardContent1">{{day5.tem}}</div>
+                        <div class="cardContent2">{{day5.date}}</div>
+                        <div class="cardContent2">{{day5.day}}</div>
+                        <div class="cardContent3">
+                            <div>日出 {{day5.sunrise}}</div>
+                            <div>日落 {{day5.sunset}}</div>                            
+                        </div>
+                    </div>
+                </div>
+                 <div class="weatherCard" :class="day6.wea_img">
+                    <div class="cardContent">
+                        <div class="cardContent1">{{day6.tem}}</div>
+                        <div class="cardContent2">{{day6.date}}</div>
+                        <div class="cardContent2">{{day6.day}}</div>
+                        <div class="cardContent3">
+                            <div>日出 {{day6.sunrise}}</div>
+                            <div>日落 {{day6.sunset}}</div>                            
+                        </div>
+                    </div>
+                </div>
+                 <div class="weatherCard" :class="day7.wea_img">
+                    <div class="cardContent">
+                        <div class="cardContent1">{{day7.tem}}</div>
+                        <div class="cardContent2">{{day7.date}}</div>
+                        <div class="cardContent2">{{day7.day}}</div>
+                        <div class="cardContent3">
+                            <div>日出 {{day7.sunrise}}</div>
+                            <div>日落 {{day7.sunset}}</div>                            
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="food">
-                <h1>美食 & 小吃</h1>
-                <div class="foodCards">
-                    <div class="bigImg">
-                        <div class="imgMask">
-                            <img src="../assets/西安/胡辣汤.jpg" alt="">
-                            <div class="mask"><h3>胡辣汤</h3>陕西的胡辣汤与河南胡辣汤不同，不仅加入了加入肉丸，而且里边加入了很多蔬菜，比如说西葫芦，土豆，散花，胡萝卜，豆角，蒜苔等等，配着当地的锅盔，肉夹馍，吃起来最是美味。</div>
-                        </div>
-                        <div>
-                            <div class="imgMask"><img src="../assets/西安/锅盔.jpg" alt=""><div class="mask">锅盔，是陕西关中地区城乡居民喜食的传统风味面食小吃，源于外婆给外孙贺弥月赠送礼品，后发展成为风味方便食品。</div></div>
-                            <div class="imgMask"><img src="../assets/西安/葫芦头.jpg" alt=""><div class="mask">葫芦头，是西安特有的风味小吃，主要原料是猪肠，其主料由猪大肠头、猪肚头、肥肠去腥臊后加佐料煮成汤，再用汤煮馍而成。</div></div>
-                        </div>
-                        <div>
-                            <div class="imgMask"><img src="../assets/西安/凉皮.jpg" alt=""><div class="mask">凉皮，制作时把大米粉调成糊状，平铺在多层竹笼内，旺为蒸熟，做出的凉皮筋、薄、细、软，具有独特风味。</div></div>
-                            <div class="imgMask"><img src="../assets/西安/柿饼.jpeg" alt=""><div class="mask">柿饼，是柿子作成的饼状食品，是陕西著名的传统小吃。营养价值很高，所含维生素和糖分比一般水果高1～2倍左右。</div></div>
-                        </div>
+        </div>
+        <div class="attractions">
+            <h1>景点 & 活动</h1>
+            <div class="attractionsCards">
+                <div class="card">
+                    <div class="content">
+                        <img src="../assets/西安/大雁塔.jpg" alt="">
+                        <div id="text">
+                            <h3>大雁塔</h3>
+                            <p>
+                                世界文化遗产、全国重点文物保护单位、国家AAAAA级旅游景区。大雁塔被视为古都西安的象征。大雁塔是8世纪为保存玄奘法师由天竺经丝绸之路带回长安的经卷佛像而建。
+                            </p>
+                        </div>    
+                        <a href="#">了解更多</a>
                     </div>
-                    <div class="bigImg">
-                        <div>
-                            <div class="imgMask"><img src="../assets/西安/油泼面.jpg" alt=""><div class="mask">油泼面，是陕西传统的特色面食之一，起源于明代，有鲜香味、酸辣味、香辣味。</div></div>
-                            <div class="imgMask"><img src="../assets/西安/肉夹馍.jpg" alt=""><div class="mask">肉夹馍，其馍外观焦黄，皮酥里嫩，火功到家，食用时温度以烫手为佳，饼酥肉香，爽而不腻，是陕西著名小吃。</div></div>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <img src="../assets/西安/大明宫.jpg" alt="">
+                        <div id="text">
+                            <h3>大明宫</h3>
+                            <p>
+                                世界文化遗产、全国重点文物保护单位、国家AAAAA级旅游景区。大明宫是东方宫殿建筑艺术的杰出代表，被誉为丝绸之路的东方圣殿。
+                            </p>
                         </div>
-                        <div>
-                            <div class="imgMask"><img src="../assets/西安/牛羊肉泡馍.jpg" alt=""><div class="mask">牛羊肉泡馍，料重味重,肉烂汤浓,香气诱人,食后余味无穷,又有暖胃之功能，是西安最有特色最有影响的食品。</div></div>
-                            <div class="imgMask"><img src="../assets/西安/水煎包.jpg" alt=""><div class="mask">水煎包，特色传统风味小吃，距今已有500多年的历史，在华北和中原地区颇为流行。口感脆而不硬，香而不腻，味道鲜美极致。</div></div>
-                        </div>
-                        <div class="imgMask"><img src="../assets/西安/蜜枣甑糕.jpg" alt=""><div class="mask"><h3>蜜枣甑糕</h3>陕西关中地区的汉族传统糕类早点食品。以糯米、红枣为原料，相间叠放，铺三四层。用大、小火蒸熟。色泽鲜艳，红白相间，粘甜味美。以糯米和红枣为原料制成的一种甜糕。</div></div>
+                        <a href="#">了解更多</a>
                     </div>
-                </div>    
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <img src="../assets/西安/大唐芙蓉园.jpg" alt="">
+                        <div id="text">
+                            <h3>大唐芙蓉园</h3>
+                            <p>
+                                国家AAAAA级旅游景区。大唐芙蓉园是首家唐文化主题公园，拥有全球幅宽最大的水幕电影，是国内最长的唐文化长廊。
+                            </p>
+                        </div>
+                        <a href="#">了解更多</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <img src="../assets/西安/秦岭野生动物园.jpg" alt="">
+                        <div id="text">
+                            <h3>秦岭野生动物园</h3>
+                            <p>
+                                国家AAAA级旅游景区。景点位于秦岭北麓浅山地带，是集野生动物移地保护、科普教育、旅游观光、休闲度假等功能于一体的综合性园林项目。
+                            </p>
+                        </div>    
+                        <a href="#">了解更多</a>
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="food">
+            <h1>美食 & 小吃</h1>
+            <div class="foodCards">
+                <div class="bigImg">
+                    <div class="imgMask">
+                        <img src="../assets/西安/胡辣汤.jpg" alt="">
+                        <div class="mask"><h3>胡辣汤</h3>陕西的胡辣汤与河南胡辣汤不同，不仅加入了加入肉丸，而且里边加入了很多蔬菜，吃起来最是美味。</div>
+                    </div>
+                    <div>
+                        <div class="imgMask"><img src="../assets/西安/锅盔.jpg" alt=""><div class="mask"><span>锅盔</span><br>风味方便食品</div></div>
+                        <div class="imgMask"><img src="../assets/西安/葫芦头.jpg" alt=""><div class="mask"><span>葫芦头</span><br>西安特有的风味小吃</div></div>
+                    </div>
+                    <div>
+                        <div class="imgMask"><img src="../assets/西安/凉皮.jpg" alt=""><div class="mask"><span>凉皮</span><br>大米粉调成糊状，筋、薄、细、软</div></div>
+                        <div class="imgMask"><img src="../assets/西安/柿饼.jpeg" alt=""><div class="mask"><span>柿饼</span><br>柿子作成的饼状食品，营养价值很高</div></div>
+                    </div>
+                </div>
+                <div class="bigImg">
+                    <div>
+                        <div class="imgMask"><img src="../assets/西安/油泼面.jpg" alt=""><div class="mask"><span>油泼面</span><br>陕西传统的特色面食之一，有鲜香味、酸辣味、香辣味</div></div>
+                        <div class="imgMask"><img src="../assets/西安/肉夹馍.jpg" alt=""><div class="mask"><span>肉夹馍</span><br>馍外观焦黄，皮酥里嫩，饼酥肉香，爽而不腻</div></div>
+                    </div>
+                    <div>
+                        <div class="imgMask"><img src="../assets/西安/牛羊肉泡馍.jpg" alt=""><div class="mask"><span>牛肉泡馍</span><br>料重味重,肉烂汤浓,香气诱人</div></div>
+                        <div class="imgMask"><img src="../assets/西安/水煎包.jpg" alt=""><div class="mask"><span>水煎包</span><br>特色传统风味小吃，口感脆而不硬，香而不腻，味道鲜美极致</div></div>
+                    </div>
+                    <div class="imgMask"><img src="../assets/西安/蜜枣甑糕.jpg" alt=""><div class="mask"><h3>蜜枣甑糕</h3>陕西关中地区的汉族传统糕类早点食品。以糯米和红枣为原料制成的一种甜糕</div></div>
+                </div>
+            </div>    
         </div>
     </div>
 </template>
@@ -104,57 +185,167 @@
 <script>
 export default {
     name: "Xian",
-
+    data() {
+        return {
+            pickerOptions: {
+            shortcuts: [{
+                text: '最近一周',
+                onClick(picker) {
+                const end = new Date();
+                const start = new Date();
+                start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                picker.$emit('pick', [start, end]);
+                }
+            }, {
+                text: '最近一个月',
+                onClick(picker) {
+                const end = new Date();
+                const start = new Date();
+                start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                picker.$emit('pick', [start, end]);
+                }
+            }, {
+                text: '最近三个月',
+                onClick(picker) {
+                const end = new Date();
+                const start = new Date();
+                start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                picker.$emit('pick', [start, end]);
+                }
+            }]
+            },
+            value2: '',
+            day1: {},
+            day2: {},
+            day3: {},
+            day4: {},
+            day5: {},
+            day6: {},
+            day7: {},
+        };
+    },
+    methods: {
+        getWeather() {
+            this.$axios.get("https://yiketianqi.com/api?unescape=1&version=v1&appid=44324191&appsecret=0XnKD7sG&city=西安")
+            .then(response => {
+                console.log(response.data)
+                let data = response.data.data;
+                this.day1 = data[0];
+                this.day2 = data[1];
+                this.day3 = data[2];
+                this.day4 = data[3];
+                this.day5 = data[4];
+                this.day6 = data[5];
+                this.day7 = data[6];
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
+    },
+    mounted() {
+            this.$axios.get("https://yiketianqi.com/api?unescape=1&version=v1&appid=44324191&appsecret=0XnKD7sG&city=西安")
+            .then(response => {
+                console.log(response.data)
+                let data = response.data.data;
+                this.day1 = data[0];
+                this.day2 = data[1];
+                this.day3 = data[2];
+                this.day4 = data[3];
+                this.day5 = data[4];
+                this.day6 = data[5];
+                this.day7 = data[6];
+            }).catch(function (error) {
+                console.log(error);
+            });        
+    }
 }
 </script>
 
 <style scoped>
     .city {
-        background-image: url("../assets/西安/bg.png");
-        background-position: 50vw 10vh;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: 60vw 90vh;
         display: flex;
         flex-direction: column;
-        margin-left: 3rem;
-        margin-right: 3rem;
         width: 105vw;
         overflow-x: hidden;
         overflow-y: auto;
     }
-    #title {
-        font-size: 3rem;
-        font-weight: bold;
-        margin: 0 3rem;
-    }
-    .head {
-        display: flex;
-        flex-direction: row;
-        font-size: 1.5rem;
-        margin-left: 3rem;
-    }
-    .head #cityImg{
-        width: 40rem;
-        margin-top: 3rem;
-        border-radius: 2rem;
-    }
-    .head #cityVideo {
-        width: 40rem;
-        margin-left: 3rem;
-        margin-top: 3rem;
-        border-radius: 2rem;
+    .title {
+        width: 100vw;
+        height: 55vh;
+        background-image: url("../assets/西安/Xian-1.jpg");
+        background-size: cover;
         display: flex;
         flex-direction: column;
     }
-    .head #cityVideo #cityText {
-        background-color: rgba(255, 255, 255, 0.95);
+    .title h2 {
+        font-family: "Microsoft YaHei";
+        margin-top: 20vh;
+        margin-left: 5vw;
+        font-size: 1.2rem;
+        font-weight: 200;
+        color: #fff;
     }
-    .head iframe {
-        float: left;
-        height: 15rem;
-        width: 30rem;
+    .title h1 {
+        font-family: "Microsoft YaHei";
+        margin-top: 1.5vh;
+        margin-left: 5vw;
+        font-size: 2.8rem;
+        font-weight: 500;
+        color: #fff;
+    }
+    .weather {
+        margin-left: 3rem;
+        margin-top: 2rem;        
+    }
+    .weather h1 {
+        font-size: 2rem;
+    }
+    .weather .date {
+        cursor: pointer;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+    }
+    .weather .date .demonstration {
+        line-height: 1.8rem;
+        padding: 0 1rem;
+        border: rgb(141, 139, 139) 0.1rem solid;
         border-radius: 1rem;
+        font-size: 1.3rem;
+        margin-left: 1rem;
+        transition: all 1s;
+    }
+    .weather .date .demonstration:hover {
+        border: transparent;
+        font-size: 1.4rem;
+    }
+    .weather .weatherCardList {
+        display: flex;
+        margin-top: 1rem;
+    }
+    .weatherCard {
+        width: 10vw;
+        height: 25vh;
+        margin-right: 1.5rem;
+        box-shadow:  0 5px 5px rgba(0,0,0,0.5);
+        border-radius: 20px;
+    }
+    .weatherCard .cardContent {
+        display: flex;
+        flex-direction: column;
+        color: black;
+    }
+    .cardContent1 {
+        font-size: 2rem;
+        margin: 2rem auto 0;
+    }
+    .cardContent2 {
+        font-size: 1rem;
+        margin: 0.1rem auto;
+    }
+    .cardContent3 {
+        margin: 1rem auto 1rem;
+        font-size: 1rem;
     }
     .attractions {
         display: flex;
@@ -252,7 +443,7 @@ export default {
         bottom: 0;
         left: 0;
         background-color: rgba(17,17,17,0.75);;
-        opacity: 0;
+        opacity: 0.6;
         transition: opacity 0.3s;
         color: #fff;
         border-radius: 0 0 1rem 1rem;
@@ -266,7 +457,7 @@ export default {
         height: 5rem;
     }
     .food .foodCards .bigImg .imgMask:hover .mask {
-        opacity: 0.8;
+        opacity: 0;
     }
     .food .foodCards .bigImg div {
         display: flex;
@@ -283,5 +474,37 @@ export default {
         height: 11rem;
         border-radius: 1rem;
         box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+    }
+    .yu {
+        background: url("../assets/yu.jpg");
+        background-size: cover;
+    }
+    .yin {
+        background: url("../assets/yin.jpg");
+        background-size: cover;
+    }
+    .xue {
+        background: url("../assets/xue.jpg");
+        background-size: cover;
+    }
+    .wu {
+        background: url("../assets/wu.jpg");
+        background-size: cover;
+    }
+    .shachen {
+        background: url("../assets/shachen.jpg");
+        background-size: cover;
+    }
+    .qing {
+        background: url("../assets/qing.jpg");
+        background-size: cover;
+    }
+    .lei {
+        background: url("../assets/lei.jpg");
+        background-size: cover;
+    }
+    .yun {
+        background: url("../assets/yun.jpg");
+        background-size: cover;
     }
 </style>

@@ -4,7 +4,7 @@
         <div class="site-background">
             <h2>随时 & 随地</h2>
             <h1>都要盛装出席</h1>
-            <router-link to="/City" >
+            <router-link to="/Xian" >
             <button class='btn1'>
                 探索
             </button></router-link>
