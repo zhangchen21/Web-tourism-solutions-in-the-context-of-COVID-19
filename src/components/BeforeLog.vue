@@ -1,22 +1,20 @@
 <template>
-    <div id="beforeLog">
-        <div class="login-box">
-            <h1>登录</h1>
-            <div class="input-box">
-                <div class="input-text">
-                    <span class='iconfont icon-mine'></span>
-                    <input type="text" placeholder="手机号">
+    <div class="login_body">
+        <div id="login_box">
+            <div id="h1">账号密码登录</div>
+            <div id="h2">Account password login</div> 
+            <div class="content">
+                <p>请输入账号：</p>
+                <input type="text" placeholder="手机号/邮箱(phone/email)" v-model="user"><br>
+                <p>请输入密码：</p>
+                <input type="password" placeholder="password" v-model="pwd">
+                <div class="extra">
+                    <div class="extra-info">
+                        <p class="info-left"><a href="#">新用户注册</a></p>
+                        <p class="info-right"><a href="#">忘记密码</a> </p>
+                    </div>                     
                 </div>
-                <div class="input-text">
-                    <span class='iconfont icon-lock'></span>
-                    <input type="password" placeholder="密码">
-                </div>
-                <div class="input-btn">
-                    登录
-                </div>
-                <div class="sign-up">
-                    还没账户？<a href="#">立即注册</a>
-                </div>
+                <div id="submit" @click="login">登录</div>
             </div>
         </div>
     </div>
@@ -24,95 +22,110 @@
 
 <script>
 export default {
-    name: "BeforeLog"
+    name: "BeforeLog",
+    data() {
+        return {
+            user: "",
+            pwd: "",
+        }
+    },
+    methods: {
+        login() {
+            this.$axios.post("http://127.0.0.1:20001/login", {"user": this.user, "pwd": this.pwd})
+            .then(response => {
+                console.log(response.data)
+                this.$store.dispatch('changeIfLogin', response.data)
+            }).catch(function (error) {
+                console.log(error);
+            });               
+        }
+    }
 }
 </script>
 
 <style scoped>
-#beforeLog {
-    min-height: 100vh;
-    background-image: url("../assets/beforeLogBg.jpg");
+.login_body {
+    width: 101vw;
+    height: 100vh;
+    background: url("../assets/bg1.jpg");
     background-size: cover;
-    border-top: 0.1px solid black;
-}
-.login-box{
-    margin: 0 auto;
-    margin-top: 100px;
     display: flex;
     justify-content: center;
-    align-content: space-around;
-    flex-wrap: wrap;
-    width: 600px;
-    height: 400px;
-    background-color: rgba(0,0,0,.5);
-    border: 10px;
-    padding: 20px 50px;
-    border-radius: 20px;
+    align-items: center;
+}
+a {
+    text-decoration: none;
+}
+
+#login_box {
+    height: 50vh;
+    width: 22vw;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    border-radius: 2rem;
+}
+#h1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1vh;
+}
+#h2 {
+    font-size: 1.1rem;
+    font-weight: bold;  
+    margin-bottom: 4vh;  
+}
+.content {
+    height: 25vh;
+    width: 22vw;
+    border-radius: 2rem;
+}
+.content p {
+    font-size: 0.7rem;
+    font-weight: bold;;
+}
+.content input{
+    height: 5vh;
+    width: 22vw;
+    outline: none;
+    border-radius: 0.5rem;
+    border: rgb(220, 223, 230) 1px solid;
+}
+.content #submit {
+    width: 22vw;
+    line-height: 6vh;
+    font-size: 1rem;
+    margin: 0 auto;
+    background-color: #104f55;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 1rem;
+    text-align: center;
     transition: all 0.5s;
 }
-.login-box:hover {
-    transform: scale(1.1);
+.content #submit:hover {
+    background-color: transparent;
+    color: black;
+    border: 0.1rem black solid;
+    font-size: 1.1rem;
 }
-.login-box h1{
+.extra {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.extra-info {
+    line-height: 5vh;
     width: 100%;
+    font-size: 1rem;
     display: flex;
-    justify-content: center;
-    color: #fff;
-    font-size: 30px;
+    flex-direction: row;
+    justify-content: space-between;    
 }
-.login-box .input-box{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(-35px);
-}
-.login-box .input-box .input-text{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-.login-box .input-box .input-text span{
-    color: white;
-    font-size: 18px;
-    margin-top: 20px;
-}
-.login-box .input-box .input-text input{
-    border: 0;
-    padding: 6px;
-    border-bottom: 1px solid white;
-    background-color: #ffffff00;
-    color: #fff;
-    margin-top: 20px;
-}
-.login-box .input-box .input-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 25px;
-    width: 145px;
-    height: 25px;
-    color: #fff;
-    background: linear-gradient(120deg,#a6c0fe 0%,#f68084 100%);
-    border-radius: 25px;
-    cursor: pointer;
-}
-.login-box .input-box .input-btn:hover{
-    background: transparent;
-    color: white;
-    border: 1px solid white;
-}
-.login-box .input-box .sign-up{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    color: white;
-    font-size: 15px;
-}
-.login-box .input-box .sign-up a{
-    color: #3498db;
-    text-decoration: none;
-    cursor: pointer;
+
+.extra-info a {
+    color: #104f55;
 }
 </style>

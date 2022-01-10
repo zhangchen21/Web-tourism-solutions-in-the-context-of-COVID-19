@@ -3,6 +3,7 @@ import Main from "../components/Main"
 import About from "../components/About"
 import More from "../components/More"
 import BeforeLog from "../components/BeforeLog"
+import Log from "../components/Login"
 import Xian from "../components/Xian"
 
 export default new VueRouter({
@@ -26,6 +27,10 @@ export default new VueRouter({
         {
             path: "/BeforeLog",
             component: BeforeLog
+        },
+        {
+            path: "/Log",
+            component: Log
         },
         {
             path: "/Xian",

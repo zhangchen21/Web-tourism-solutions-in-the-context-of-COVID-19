@@ -1,19 +1,19 @@
 <template>
-    <nav class="nav">
+    <nav class="nav" :class="ifNowIsCityPage">
         <div class="nav-menu flex-row">
             <div class="nav-brand">
-                <router-link to="/BeforeLog" id="nav-a-3">登录</router-link>
+                <div @click="changeToLoginPage"><router-link :to="judge"><el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar></router-link></div>
                 <div id="choseCity">
                     <el-dropdown @command="handleCommand">
-                        <span class="el-dropdown-link">
+                        <span class="el-dropdown-link" id="navCity">
                             {{thisCity}}<i class="el-icon-arrow-down el-icon--right"></i>
                         </span>
                         <el-dropdown-menu slot="dropdown">
                             <el-dropdown-item command="西安"><router-link to="/Xian">西安</router-link></el-dropdown-item>
-                            <el-dropdown-item command="北京">北京</el-dropdown-item>
-                            <el-dropdown-item command="上海">上海</el-dropdown-item>
-                            <el-dropdown-item command="青岛">青岛</el-dropdown-item>
-                            <el-dropdown-item command="张家界">张家界</el-dropdown-item>
+                            <el-dropdown-item command="北京"><router-link to="/Xian">北京</router-link></el-dropdown-item>
+                            <el-dropdown-item command="上海"><router-link to="/Xian">上海</router-link></el-dropdown-item>
+                            <el-dropdown-item command="青岛"><router-link to="/Xian">青岛</router-link></el-dropdown-item>
+                            <el-dropdown-item command="张家界"><router-link to="/Xian">张家界</router-link></el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>
                 </div>
@@ -39,7 +39,15 @@ export default {
     data(){
         return {
             thisPage: 0,
-            thisCity: "西安"
+            thisCity: "西安",
+        }
+    },
+    computed: {
+        judge() {
+            return ((this.$store.state.isLoginFlag === "true") ? "/Log" : "/BeforeLog");
+        },
+        ifNowIsCityPage() {
+            return this.$store.state.ifHomeIsCity
         }
     },
     methods: {
@@ -53,9 +61,15 @@ export default {
         },
         changePage(event){
             this.thisPage = Number(event.target.id.substr(6, 1));
+            this.$store.commit('ChangeIfHomeIsCity', "home");
         },
         handleCommand(command) {
             this.thisCity = command;
+            this.$store.commit('ChangeIfHomeIsCity', "city");
+        },
+        changeToLoginPage() {
+            this.thisPage = 3;
+            this.$store.commit('ChangeIfHomeIsCity', "home");
         }
     }
 }
@@ -82,13 +96,18 @@ ul{
     flex-wrap: wrap;
 }
 .nav{
-    background-color: #f8f8f8;; 
     box-shadow: 0 0 1px rgba(0,0,0,0.25);
     padding: 0 1rem;
     overflow: hidden;
     color: var(--gray);
     height: 8vh;
-    /* opacity: 0; */
+    vertical-align: sub;
+    background-color: #f8f8f8;
+}
+#navCity {
+    font-size: 1.2rem;
+    color: var(--midnight);
+    font-weight:bold
 }
 .nav-menu{
     justify-content: space-between;
@@ -121,13 +140,21 @@ ul{
     font-family: var(--Abel);
     position: relative;
 }
-.thispage, .nav-link:hover{
+.thispage{
     background-color: var(--midnight);
 }
 .thispage a{
     color: #fff;
 }
-.nav-link:hover a {
-    color: #fff;
+.city {
+    background-color: transparent;
+    
+}
+.city a, .city #navCity {
+    color: var(--white);
+    font-weight: 100;
+}
+.city .thispage {
+    background-color: transparent;
 }
 </style>

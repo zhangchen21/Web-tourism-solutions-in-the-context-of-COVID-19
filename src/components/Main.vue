@@ -5,7 +5,7 @@
             <h2>随时 & 随地</h2>
             <h1>都要盛装出席</h1>
             <router-link to="/Xian" >
-            <button class='btn1'>
+            <button class='btn1' @click="jumpToCity">
                 探索
             </button></router-link>
         </div>
@@ -17,8 +17,8 @@
 export default {
     name: "Main",
     methods: {
-        explore(){
-            alert("探索")
+        jumpToCity() {
+            this.$store.commit('ChangeIfHomeIsCity', "city")
         }
     }
 }

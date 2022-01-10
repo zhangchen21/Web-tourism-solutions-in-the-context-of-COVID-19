@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <div class="Nav"><Nav/></div>
+        <div class="Nav"><Nav></Nav></div>
         <router-view></router-view>
     </div>
 </template>
@@ -33,7 +33,7 @@ html,body{
     font-family: var(--Abel);
 }
 .Nav {
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100vw;
     z-index: 999;

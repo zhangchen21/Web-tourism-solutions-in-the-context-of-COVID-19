@@ -2,102 +2,19 @@
     <div id="xian" class="city">
         <div class="title">
             <h2>探索该地的隐藏景点和让人叹为观止的风景</h2>
-            <h1>千年古都，“八水润长安”</h1>
+            <h1>千年古都  “八水润长安”</h1>
         </div>
-        <div class="weather"> 
-            <h1>查看天气</h1>
-            <div class="date">
-                <el-date-picker
-                v-model="value2"
-                align="right"
-                type="date"
-                placeholder="选择日期"
-                :picker-options="pickerOptions">
-                </el-date-picker>
-                <div class="demonstration" @click="getWeather">确定</div>
-            </div>
-            <div class="weatherCardList">
-                <div class="weatherCard" :class="day1.wea_img">
-                    <div class="cardContent">
-                        <div class="cardContent1">{{day1.tem}}</div>
-                        <div class="cardContent2">{{day1.date}}</div>
-                        <div class="cardContent2">{{day1.day}}</div>
-                        <div class="cardContent3">
-                            <div>日出 {{day1.sunrise}}</div>
-                            <div>日落 {{day1.sunset}}</div>                            
-                        </div>
-                    </div>
-                </div>
-                <div class="weatherCard" :class="day2.wea_img">
-                    <div class="cardContent">
-                        <div class="cardContent1">{{day2.tem}}</div>
-                        <div class="cardContent2">{{day2.date}}</div>
-                        <div class="cardContent2">{{day2.day}}</div>
-                        <div class="cardContent3">
-                            <div>日出 {{day2.sunrise}}</div>
-                            <div>日落 {{day2.sunset}}</div>                            
-                        </div>
-                    </div>
-                </div>
-                <div class="weatherCard" :class="day3.wea_img">
-                    <div class="cardContent">
-                        <div class="cardContent1">{{day3.tem}}</div>
-                        <div class="cardContent2">{{day3.date}}</div>
-                        <div class="cardContent2">{{day3.day}}</div>
-                        <div class="cardContent3">
-                            <div>日出 {{day3.sunrise}}</div>
-                            <div>日落 {{day3.sunset}}</div>                            
-                        </div>
-                    </div>
-                </div>
-                <div class="weatherCard" :class="day4.wea_img">
-                    <div class="cardContent">
-                        <div class="cardContent1">{{day4.tem}}</div>
-                        <div class="cardContent2">{{day4.date}}</div>
-                        <div class="cardContent2">{{day4.day}}</div>
-                        <div class="cardContent3">
-                            <div>日出 {{day4.sunrise}}</div>
-                            <div>日落 {{day4.sunset}}</div>     
-                        </div>                       
-                    </div>
-                </div>
-                <div class="weatherCard" :class="day5.wea_img">
-                    <div class="cardContent">
-                        <div class="cardContent1">{{day5.tem}}</div>
-                        <div class="cardContent2">{{day5.date}}</div>
-                        <div class="cardContent2">{{day5.day}}</div>
-                        <div class="cardContent3">
-                            <div>日出 {{day5.sunrise}}</div>
-                            <div>日落 {{day5.sunset}}</div>                            
-                        </div>
-                    </div>
-                </div>
-                 <div class="weatherCard" :class="day6.wea_img">
-                    <div class="cardContent">
-                        <div class="cardContent1">{{day6.tem}}</div>
-                        <div class="cardContent2">{{day6.date}}</div>
-                        <div class="cardContent2">{{day6.day}}</div>
-                        <div class="cardContent3">
-                            <div>日出 {{day6.sunrise}}</div>
-                            <div>日落 {{day6.sunset}}</div>                            
-                        </div>
-                    </div>
-                </div>
-                 <div class="weatherCard" :class="day7.wea_img">
-                    <div class="cardContent">
-                        <div class="cardContent1">{{day7.tem}}</div>
-                        <div class="cardContent2">{{day7.date}}</div>
-                        <div class="cardContent2">{{day7.day}}</div>
-                        <div class="cardContent3">
-                            <div>日出 {{day7.sunrise}}</div>
-                            <div>日落 {{day7.sunset}}</div>                            
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="Covid">
+            <h1><i class="el-icon-zoom-in"></i> 当地疫情情况</h1>
+            <Covid v-bind:cityName="cityName"></Covid>
         </div>
+        <div class="Weather">
+            <h1><i class="el-icon-sunrise"></i> 探索天气</h1>
+            <Weather v-bind:cityName="cityName"></Weather>
+        </div>
+        
         <div class="attractions">
-            <h1>景点 & 活动</h1>
+            <h1><i class="el-icon-map-location"></i> 景点 & 活动</h1>
             <div class="attractionsCards">
                 <div class="card">
                     <div class="content">
@@ -150,7 +67,7 @@
             </div>
         </div>
         <div class="food">
-            <h1>美食 & 小吃</h1>
+            <h1><i class="el-icon-food"></i> 美食 & 小吃</h1>
             <div class="foodCards">
                 <div class="bigImg">
                     <div class="imgMask">
@@ -179,84 +96,26 @@
                 </div>
             </div>    
         </div>
+        <Foot id="footer"></Foot>
     </div>
 </template>
 
 <script>
+import Covid from './Covid.vue'
+import Foot from './Foot.vue'
+import Weather from './Weather.vue'
+
 export default {
     name: "Xian",
+    components: {
+        Covid,
+        Weather,
+        Foot
+    },
     data() {
         return {
-            pickerOptions: {
-            shortcuts: [{
-                text: '最近一周',
-                onClick(picker) {
-                const end = new Date();
-                const start = new Date();
-                start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
-                picker.$emit('pick', [start, end]);
-                }
-            }, {
-                text: '最近一个月',
-                onClick(picker) {
-                const end = new Date();
-                const start = new Date();
-                start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
-                picker.$emit('pick', [start, end]);
-                }
-            }, {
-                text: '最近三个月',
-                onClick(picker) {
-                const end = new Date();
-                const start = new Date();
-                start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
-                picker.$emit('pick', [start, end]);
-                }
-            }]
-            },
-            value2: '',
-            day1: {},
-            day2: {},
-            day3: {},
-            day4: {},
-            day5: {},
-            day6: {},
-            day7: {},
+            cityName: "西安",
         };
-    },
-    methods: {
-        getWeather() {
-            this.$axios.get("https://yiketianqi.com/api?unescape=1&version=v1&appid=44324191&appsecret=0XnKD7sG&city=西安")
-            .then(response => {
-                console.log(response.data)
-                let data = response.data.data;
-                this.day1 = data[0];
-                this.day2 = data[1];
-                this.day3 = data[2];
-                this.day4 = data[3];
-                this.day5 = data[4];
-                this.day6 = data[5];
-                this.day7 = data[6];
-            }).catch(function (error) {
-                console.log(error);
-            });
-        }
-    },
-    mounted() {
-            this.$axios.get("https://yiketianqi.com/api?unescape=1&version=v1&appid=44324191&appsecret=0XnKD7sG&city=西安")
-            .then(response => {
-                console.log(response.data)
-                let data = response.data.data;
-                this.day1 = data[0];
-                this.day2 = data[1];
-                this.day3 = data[2];
-                this.day4 = data[3];
-                this.day5 = data[4];
-                this.day6 = data[5];
-                this.day7 = data[6];
-            }).catch(function (error) {
-                console.log(error);
-            });        
     }
 }
 </script>
@@ -265,13 +124,14 @@ export default {
     .city {
         display: flex;
         flex-direction: column;
-        width: 105vw;
+        width: 101vw;
         overflow-x: hidden;
         overflow-y: auto;
+        align-items: center;
     }
     .title {
-        width: 100vw;
-        height: 55vh;
+        width: 101vw;
+        height: 70vh;
         background-image: url("../assets/西安/Xian-1.jpg");
         background-size: cover;
         display: flex;
@@ -280,7 +140,7 @@ export default {
     .title h2 {
         font-family: "Microsoft YaHei";
         margin-top: 20vh;
-        margin-left: 5vw;
+        margin-left: 11vw;
         font-size: 1.2rem;
         font-weight: 200;
         color: #fff;
@@ -288,85 +148,62 @@ export default {
     .title h1 {
         font-family: "Microsoft YaHei";
         margin-top: 1.5vh;
-        margin-left: 5vw;
+        margin-left: 10vw;
         font-size: 2.8rem;
         font-weight: 500;
         color: #fff;
     }
-    .weather {
-        margin-left: 3rem;
-        margin-top: 2rem;        
-    }
-    .weather h1 {
-        font-size: 2rem;
-    }
-    .weather .date {
-        cursor: pointer;
-        font-size: 1.3rem;
-        display: flex;
-        align-items: center;
-    }
-    .weather .date .demonstration {
-        line-height: 1.8rem;
-        padding: 0 1rem;
-        border: rgb(141, 139, 139) 0.1rem solid;
-        border-radius: 1rem;
-        font-size: 1.3rem;
-        margin-left: 1rem;
-        transition: all 1s;
-    }
-    .weather .date .demonstration:hover {
-        border: transparent;
-        font-size: 1.4rem;
-    }
-    .weather .weatherCardList {
-        display: flex;
-        margin-top: 1rem;
-    }
-    .weatherCard {
-        width: 10vw;
-        height: 25vh;
-        margin-right: 1.5rem;
-        box-shadow:  0 5px 5px rgba(0,0,0,0.5);
-        border-radius: 20px;
-    }
-    .weatherCard .cardContent {
+    .Covid {
+        width: 101vw;
+        height: 80vh;
+        margin-top: 4rem;
+        font-size: 1.2rem;
         display: flex;
         flex-direction: column;
-        color: black;
+        align-items: center;
     }
-    .cardContent1 {
-        font-size: 2rem;
-        margin: 2rem auto 0;
+    .Covid h1 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
     }
-    .cardContent2 {
-        font-size: 1rem;
-        margin: 0.1rem auto;
+    .Weather {
+        width: 101vw;
+        height: 75vh;
+        margin-top: 10rem;
+        padding-top: 3rem;
+        font-size: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #fbfbfb;
     }
-    .cardContent3 {
-        margin: 1rem auto 1rem;
-        font-size: 1rem;
+    .Weather h1 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
     }
     .attractions {
         display: flex;
         flex-direction: column;
-        margin-top: 3rem;
+        width: 101vw;
+        height: 150vh;
+        margin-top: 2rem;
+        align-items: center;
     }
     .attractions h1 {
-        font-size: 2rem;
-        margin-left: 3rem;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
     }
     .attractions .attractionsCards {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin-left: 3rem;
     }
     .attractions .attractionsCards .card{
         background-color: #fff;
         width: 80vw;
         height: 13rem;
-        box-shadow:  0 5px 5px rgba(0,0,0,0.5);
+        /* box-shadow:  0 5px 5px rgba(0,0,0,0.5); */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
         border-radius: 20px;
         overflow: hidden;
         border-top: rgba(255,255,255,0.5) 1px solid;
@@ -377,7 +214,8 @@ export default {
         cursor: pointer;
     }
     .attractions .attractionsCards .card:hover {
-        transform: scale(1.01);
+        transform: scale(1);
+        box-shadow:  0 7px 7px rgba(0,0,0,0.5);
     }
     .attractions .attractionsCards .card .content{
         display: flex;
@@ -408,45 +246,51 @@ export default {
         border-radius: 20px;
         background-color: #fff;
         padding: 0.5rem 0.8rem;
-        box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+        box-shadow:  0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     }
     .food {
-        margin-top: 3rem;
-        margin-left: 3rem;
-        height: 50rem;
+        width: 101vw;
+        height: 150vh;
+        margin-top: 10rem;
+        padding-top: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #fbfbfb;
+    }
+    .food h1 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
     }
     .food .foodCards {
-        
         width: 80vw;
         display: flex;
         flex-direction: column;
-        padding-top: 1rem;
-        padding-left: 2rem;
-        border-radius: 2rem;
+        border-radius: 0.5rem;
     }
     .food .foodCards .bigImg {
         display: flex;
         flex-direction: row;
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
     }
     .food .foodCards .bigImg .imgMask {
         position: relative;
         transition: all 0.5s;
         cursor: pointer;
-        margin: 1rem 2rem;
+        margin: 1rem 1rem;
     }
     .food .foodCards .bigImg .imgMask:hover {
-        transform: scale(1.1);
+        transform: scale(1);
     }
     .food .foodCards .bigImg .mask {
         position: absolute;
         bottom: 0;
         left: 0;
-        background-color: rgba(17,17,17,0.75);;
+        background-color: rgba(17,17,17,0.75);
         opacity: 0.6;
         transition: opacity 0.3s;
         color: #fff;
-        border-radius: 0 0 1rem 1rem;
+        border-radius: 0 0 0.5rem 0.5rem;
     }
     .food .foodCards .bigImg .imgMask .mask {
         width: 30rem;
@@ -459,6 +303,11 @@ export default {
     .food .foodCards .bigImg .imgMask:hover .mask {
         opacity: 0;
     }
+    .food .foodCards .bigImg .imgMask:hover{
+        box-shadow:  0 7px 7px rgba(0,0,0,0.5);
+        border-radius: 0.5rem;
+        transform: scale(1.03);
+    }
     .food .foodCards .bigImg div {
         display: flex;
         flex-direction: column;
@@ -466,45 +315,15 @@ export default {
     .food .foodCards .bigImg .imgMask img {
         width: 30rem;
         height: 24rem;
-        border-radius: 1rem;
-        box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+        border-radius: 0.5rem;
+        /* box-shadow: 0 5px 5px rgba(0,0,0,0.5); */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     }
     .food .foodCards .bigImg div .imgMask img {
         width: 15rem;
         height: 11rem;
-        border-radius: 1rem;
-        box-shadow: 0 5px 5px rgba(0,0,0,0.5);
-    }
-    .yu {
-        background: url("../assets/yu.jpg");
-        background-size: cover;
-    }
-    .yin {
-        background: url("../assets/yin.jpg");
-        background-size: cover;
-    }
-    .xue {
-        background: url("../assets/xue.jpg");
-        background-size: cover;
-    }
-    .wu {
-        background: url("../assets/wu.jpg");
-        background-size: cover;
-    }
-    .shachen {
-        background: url("../assets/shachen.jpg");
-        background-size: cover;
-    }
-    .qing {
-        background: url("../assets/qing.jpg");
-        background-size: cover;
-    }
-    .lei {
-        background: url("../assets/lei.jpg");
-        background-size: cover;
-    }
-    .yun {
-        background: url("../assets/yun.jpg");
-        background-size: cover;
+        border-radius: 0.5rem;
+        /* box-shadow: 0 5px 5px rgba(0,0,0,0.5); */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     }
 </style>
