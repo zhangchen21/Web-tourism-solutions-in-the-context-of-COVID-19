@@ -16,7 +16,7 @@
                 <el-divider></el-divider>
                 <p>西安交通大学计算机科学与技术专业硕士在读</p>
                 <p>研究方向：计算机视觉，曾获西安交通大学优秀本科生、校园一等奖学金等</p>
-                <el-button type="success" plain>了解更多</el-button>
+                <el-button type="success" plain @click="toZhang">了解更多</el-button>
             </div>
             <div>
                 <h3>赵蕾</h3>
@@ -45,6 +45,11 @@ export default {
     components: {
         Foot
     },
+    methods: {
+        toZhang() {
+            window.open("https://github.com/zhangchen21");
+        }
+    }
 }
 </script>
 
@@ -55,7 +60,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 101vw;
+    width: 100vw;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -109,7 +114,7 @@ export default {
     width: 100vw;
     height: 120vh;
     margin-top: 10vh;
-    margin-bottom: 10vh;
+    padding-bottom: 10vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

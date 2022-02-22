@@ -14,7 +14,7 @@
                         <p class="info-right"><a href="#">忘记密码</a> </p>
                     </div>                     
                 </div>
-                <div id="submit" @click="login">登录</div>
+                <el-button id="submit" :plain="true" @click="login">登录</el-button>
             </div>
         </div>
     </div>
@@ -33,10 +33,28 @@ export default {
         login() {
             this.$axios.post("http://127.0.0.1:20001/login", {"user": this.user, "pwd": this.pwd})
             .then(response => {
-                console.log(response.data)
-                this.$store.dispatch('changeIfLogin', response.data)
-            }).catch(function (error) {
+                console.log((response.data).toString())
+                this.$store.dispatch('changeIfLogin', (response.data).toString())
+                this.$store.commit('AddUser', this.user)
+                if((response.data).toString() == "true"){
+                    this.$message({
+                        message: '登陆成功',
+                        type: 'success'
+                    });
+                    window.location.href="http://localhost:8080/#/Main"
+                }   
+                else{
+                    this.$message({
+                        message: '请输入正确的用户名和密码',
+                        type: 'error'
+                    });
+                } 
+            }).catch((error) => {
                 console.log(error);
+                this.$message({
+                    message: '服务器未响应',
+                    type: 'error'
+                });                
             });               
         }
     }
@@ -45,7 +63,7 @@ export default {
 
 <style scoped>
 .login_body {
-    width: 101vw;
+    width: 100vw;
     height: 100vh;
     background: url("../assets/bg1.jpg");
     background-size: cover;
@@ -94,8 +112,8 @@ a {
     border: rgb(220, 223, 230) 1px solid;
 }
 .content #submit {
-    width: 22vw;
-    line-height: 6vh;
+    width: 22vw;    
+    line-height: 3vh;
     font-size: 1rem;
     margin: 0 auto;
     background-color: #104f55;

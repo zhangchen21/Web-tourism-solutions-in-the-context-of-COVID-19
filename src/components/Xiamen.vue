@@ -2,7 +2,7 @@
     <div id="xian" class="city">
         <div class="title">
             <h2>探索该地的隐藏景点和让人叹为观止的风景</h2>
-            <h1>千年古都  “八水润长安”</h1>
+            <h1>再登鼓浪屿  泛舟厦门海</h1>
         </div>
         <div class="Covid">
             <h1><i class="el-icon-zoom-in"></i> 当地疫情情况</h1>
@@ -21,37 +21,37 @@
             <div class="attractionsCards">
                 <div class="card">
                     <div class="content">
-                        <img src="../assets/西安/大雁塔.jpg" alt="">
+                        <img src="../assets/厦门/鼓浪屿.jpg" alt="">
                         <div id="text">
-                            <h3>大雁塔</h3>
+                            <h3>鼓浪屿</h3>
                             <p>
-                                世界文化遗产、全国重点文物保护单位、国家AAAAA级旅游景区。大雁塔被视为古都西安的象征。大雁塔是8世纪为保存玄奘法师由天竺经丝绸之路带回长安的经卷佛像而建。
+                                鼓浪屿，2007年5月8日起被正式批准为国家5A级旅游景区。被国家地理杂志评选为“中国最美五大城区之首”，素有“海上花园”的美称。岛上完好地保留着许多具有中外建筑风格的建筑物，有“万国建筑博览会”之誉。主要旅游景点有日光岩、菽庄花园、海滨浴场、郑成功纪念馆等。
                             </p>
                         </div>
-                        <a target="_blank" href="https://baike.baidu.com/item/%E5%A4%A7%E9%9B%81%E5%A1%94/29143">了解更多</a>
+                        <a target="_blank" href="https://baike.baidu.com/item/%E9%BC%93%E6%B5%AA%E5%B1%BF/483700">了解更多</a>
                         <div id="sign0" class="signBtn" @click="changeSign0"><el-button :type="type0" :icon="sign0" circle></el-button></div>    
                     </div>
                 </div>
                 <div class="card">
                     <div class="content">
-                        <img src="../assets/西安/大明宫.jpg" alt="">
+                        <img src="../assets/厦门/南普陀寺.jpg" alt="">
                         <div id="text">
-                            <h3>大明宫</h3>
+                            <h3>南普陀寺</h3>
                             <p>
-                                世界文化遗产、全国重点文物保护单位、国家AAAAA级旅游景区。大明宫是东方宫殿建筑艺术的杰出代表，被誉为丝绸之路的东方圣殿。
+                                南普陀寺，位于厦门市思明区，始建于唐末五代，初称泗洲院。北宋僧文翠改建称无尽岩。元废。明初复建，更名普照寺。此后数百年来，经历代主持景峰、省己、喜参诸和尚多次重修扩建，至民国初年，已构成三殿七堂俱全的禅寺格局。
                             </p>
                         </div>
-                        <a target="_blank" href="https://baike.baidu.com/item/%E5%A4%A7%E6%98%8E%E5%AE%AB%E5%9B%BD%E5%AE%B6%E9%81%97%E5%9D%80%E5%85%AC%E5%9B%AD/4985373?fromtitle=%E5%A4%A7%E6%98%8E%E5%AE%AB%E9%81%97%E5%9D%80%E5%85%AC%E5%9B%AD&fromid=9827321">了解更多</a>
+                        <a target="_blank" href="https://baike.baidu.com/item/%E5%8D%97%E6%99%AE%E9%99%80%E5%AF%BA/1180153">了解更多</a>
                         <div id="sign0" class="signBtn" @click="changeSign1"><el-button :type="type1" :icon="sign1" circle></el-button></div>    
                     </div>
                 </div>
                 <div class="card">
                     <div class="content">
-                        <img src="../assets/西安/大唐芙蓉园.jpg" alt="">
+                        <img src="../assets/厦门/天竺山森林公园.jpg" alt="">
                         <div id="text">
-                            <h3>大唐芙蓉园</h3>
+                            <h3>天竺山森林公园</h3>
                             <p>
-                                国家AAAAA级旅游景区。大唐芙蓉园是首家唐文化主题公园，拥有全球幅宽最大的水幕电影，是国内最长的唐文化长廊。
+                                天竺山森林公园，位于厦门市海沧区东孚镇，园内有森林植物200多种、野生动物40多种，珍贵野生动物有金钱豹、林麝、果子狸、狐狸、豹猫、锦鸡、青羊、杜鹃等。园内人文景观60余处，其中古迹6处，景点58个。
                             </p>
                         </div>
                         <a target="_blank" href="https://baike.baidu.com/item/%E5%A4%A7%E5%94%90%E8%8A%99%E8%93%89%E5%9B%AD/5709">了解更多</a>
@@ -60,14 +60,14 @@
                 </div>
                 <div class="card">
                     <div class="content">
-                        <img src="../assets/西安/秦岭野生动物园.jpg" alt="">
+                        <img src="../assets/厦门/五缘湾湿地公园.jpg" alt="">
                         <div id="text">
-                            <h3>秦岭野生动物园</h3>
+                            <h3>五缘湾湿地公园</h3>
                             <p>
-                                国家AAAA级旅游景区。景点位于秦岭北麓浅山地带，是集野生动物移地保护、科普教育、旅游观光、休闲度假等功能于一体的综合性园林项目。
+                                五缘湾湿地公园，位于厦门市湖里区五缘湾，占地85公顷，是厦门最大的公园，也是最大的湿地生态园区。具有水栖和湿生植物带、水生植物群落、芦苇及湿地区域植物群落。
                             </p>
                         </div>    
-                        <a target="_blank" href="https://baike.baidu.com/item/%E8%A5%BF%E5%AE%89%E7%A7%A6%E5%B2%AD%E9%87%8E%E7%94%9F%E5%8A%A8%E7%89%A9%E5%9B%AD?fromtitle=%E7%A7%A6%E5%B2%AD%E9%87%8E%E7%94%9F%E5%8A%A8%E7%89%A9%E5%9B%AD&fromid=1623286">了解更多</a>
+                        <a target="_blank" href="https://baike.baidu.com/item/%E4%BA%94%E7%BC%98%E6%B9%BE%E6%B9%BF%E5%9C%B0%E5%85%AC%E5%9B%AD/17393053">了解更多</a>
                         <div id="sign0" class="signBtn" @click="changeSign3"><el-button :type="type3" :icon="sign3" circle></el-button></div>
                     </div>
                 </div>
@@ -78,28 +78,28 @@
             <div class="foodCards">
                 <div class="bigImg">
                     <div class="imgMask">
-                        <img src="../assets/西安/胡辣汤.jpg" alt="">
-                        <div class="mask"><span>胡辣汤</span><br>陕西的胡辣汤与河南胡辣汤不同，不仅加入了加入肉丸，而且里边加入了很多蔬菜，吃起来最是美味</div>
+                        <img src="../assets/厦门/沙茶面.png" alt="">
+                        <div class="mask"><span>沙茶面</span><br>独特的咸水油面放进开水锅里烫熟，最后淋上一直在锅里炖煮的高汤，放点蔬菜，加入沙茶酱，这就是厦门独有的味道</div>
                     </div>
                     <div>
-                        <div class="imgMask"><img src="../assets/西安/锅盔.jpg" alt=""><div class="mask"><span>锅盔</span>饼大直径二尺外，又圆又厚像锅盖,风味方便食品</div></div>
-                        <div class="imgMask"><img src="../assets/西安/葫芦头.jpg" alt=""><div class="mask"><span>葫芦头</span>馍块洁白晶亮、软绵滑韧，肉嫩汤鲜，肥而不腻</div></div>
+                        <div class="imgMask"><img src="../assets/厦门/姜母鸡.png" alt=""><div class="mask"><span>姜母鸡</span>高品质的番鸭，搭配老姜，慢慢的温火炖煮，美味回味无穷</div></div>
+                        <div class="imgMask"><img src="../assets/厦门/蚵仔煎.png" alt=""><div class="mask"><span>蚵仔煎</span>口感香脆，肉馅香滑，新鲜的蚵仔，做出来的海蛎煎丰盛多汁</div></div>
                     </div>
                     <div>
-                        <div class="imgMask"><img src="../assets/西安/凉皮.jpg" alt=""><div class="mask"><span>凉皮</span>大米粉调成糊状，筋、薄、细、软</div></div>
-                        <div class="imgMask"><img src="../assets/西安/柿饼.jpeg" alt=""><div class="mask"><span>柿饼</span>柿子作成的饼状食品，营养价值很高</div></div>
+                        <div class="imgMask"><img src="../assets/厦门/花生汤.png" alt=""><div class="mask"><span>花生汤</span>汤色乳白，甘甜爽口，黄生仁酥烂不碎，入口即化</div></div>
+                        <div class="imgMask"><img src="../assets/厦门/土笋冻.png" alt=""><div class="mask"><span>土笋冻</span>色香俱佳的传统风味小吃，它富含天然的胶质，是厦门最独有的美味</div></div>
                     </div>
                 </div>
                 <div class="bigImg">
                     <div>
-                        <div class="imgMask"><img src="../assets/西安/油泼面.jpg" alt=""><div class="mask"><span>油泼面</span>陕西传统的特色面食之一，有鲜香味、酸辣味、香辣味</div></div>
-                        <div class="imgMask"><img src="../assets/西安/肉夹馍.jpg" alt=""><div class="mask"><span>肉夹馍</span>馍外观焦黄，皮酥里嫩，饼酥肉香，爽而不腻</div></div>
+                        <div class="imgMask"><img src="../assets/厦门/五香条.png" alt=""><div class="mask"><span>五香条</span>用豆皮裹上剁碎精肉，加上葱包成春卷状，炸成焦黄，十分诱人</div></div>
+                        <div class="imgMask"><img src="../assets/厦门/四果汤.png" alt=""><div class="mask"><span>四果汤</span>清甜的水果，加上豆类杂果，盖上冰和糖水，就是正宗的四果汤</div></div>
                     </div>
                     <div>
-                        <div class="imgMask"><img src="../assets/西安/牛羊肉泡馍.jpg" alt=""><div class="mask"><span>牛肉泡馍</span>料重味重,肉烂汤浓,香气诱人</div></div>
-                        <div class="imgMask"><img src="../assets/西安/水煎包.jpg" alt=""><div class="mask"><span>水煎包</span>特色传统风味小吃，口感脆而不硬，香而不腻，味道鲜美极致</div></div>
+                        <div class="imgMask"><img src="../assets/厦门/面线糊.png" alt=""><div class="mask"><span>面线糊</span>面线煮成糊状，搭配各种卤料下去熬，高汤是整道美食的灵魂</div></div>
+                        <div class="imgMask"><img src="../assets/厦门/烧肉粽.png" alt=""><div class="mask"><span>烧肉粽</span>以虾米和芋头粒为原料，配上虾仁和猪肉，糯米用竹叶包好即可享用</div></div>
                     </div>
-                    <div class="imgMask"><img src="../assets/西安/蜜枣甑糕.jpg" alt=""><div class="mask"><span>蜜枣甑糕</span><br>陕西关中地区的汉族传统糕类早点食品。以糯米和红枣为原料制成的一种甜糕,蒸出锅后，吃起来软糯香甜 ，特别深受一些老人、小孩和女孩子们的喜爱</div></div>
+                    <div class="imgMask"><img src="../assets/厦门/芋包.png" alt=""><div class="mask"><span>芋包</span><br>芋包看着像是包子的形状，它不是普通包子用面粉做的，而是以芋为皮里面包馅料做成的一种特色小吃。芋包表面会淋上葱头油，芋头馅可以根据个人口味调制，厦门的芋包里面咸香味的有豆干、笋干、卤肉等</div></div>
                 </div>
             </div>    
         </div>
@@ -114,7 +114,7 @@ import Weather from './Weather.vue'
 import Outfit from './Outfit.vue'
 
 export default {
-    name: "Xian",
+    name: "Xiamen",
     components: {
         Covid,
         Weather,
@@ -123,8 +123,8 @@ export default {
     },
     data() {
         return {
-            cityName: "西安",
-            tem: 7,
+            cityName: "厦门",
+            tem: 15,
             sign0: "el-icon-star-off",
             sign1: "el-icon-star-off",
             sign2: "el-icon-star-off",
@@ -180,42 +180,42 @@ export default {
         changeSign0() {
             if(this.sign0 == "el-icon-star-off"){
                 this.sign0 = "el-icon-check";
-                this.addarea("大雁塔", 20220100, "陕西省西安市雁塔区大慈恩寺内")                              
+                this.addarea("鼓浪屿", 20220200, "福建省厦门市思明区鼓浪屿")                              
             }
             else {
                 this.sign0 = "el-icon-star-off";
-                this.deletearea("大雁塔")      
+                this.deletearea("鼓浪屿")      
             }
 
         },
         changeSign1() {
             if(this.sign1 == "el-icon-star-off"){
                 this.sign1 = "el-icon-check";
-                this.addarea("大明宫", 20220101, "陕西省西安市太华南路")
+                this.addarea("南普陀寺", 20220201, "福建省厦门市思明区思明南路515号")
             }
             else {
                 this.sign1 = "el-icon-star-off";
-                this.deletearea("大明宫")
+                this.deletearea("南普陀寺")
             }
         },
         changeSign2() {
             if(this.sign2 == "el-icon-star-off"){
                 this.sign2 = "el-icon-check";
-                this.addarea("大唐芙蓉园", 20220102, "西安市雁塔区曲江新区芙蓉西路99号")
+                this.addarea("天竺山森林公园", 20220202, "厦门市郊区西北部的国营天竺山林场内")
             }
             else {
                 this.sign2 = "el-icon-star-off";
-                this.deletearea("大唐芙蓉园")
+                this.deletearea("天竺山森林公园")
             }
         },
         changeSign3() {
             if(this.sign3 == "el-icon-star-off"){
                 this.sign3 = "el-icon-check";
-                this.addarea("秦岭野生动物园", 20220103, "西安市长安区滦镇107省道")
+                this.addarea("五缘湾湿地公园", 20220203, "厦门市湖里区金山路")
             }
             else {
                 this.sign3 = "el-icon-star-off";
-                this.deletearea("秦岭野生动物园")
+                this.deletearea("五缘湾湿地公园")
             }
         }
     },
@@ -225,10 +225,10 @@ export default {
         .then(res => {
             console.log(res.data);
             res.data.forEach(element => {
-                if(element.areaName == "大雁塔") this.sign0 = "el-icon-check";
-                if(element.areaName == "大明宫") this.sign1 = "el-icon-check";
-                if(element.areaName == "大唐芙蓉园") this.sign2 = "el-icon-check";
-                if(element.areaName == "秦岭野生动物园") this.sign3 = "el-icon-check";
+                if(element.areaName == "鼓浪屿") this.sign0 = "el-icon-check";
+                if(element.areaName == "南普陀寺") this.sign1 = "el-icon-check";
+                if(element.areaName == "天竺山森林公园") this.sign2 = "el-icon-check";
+                if(element.areaName == "五缘湾湿地公园") this.sign3 = "el-icon-check";
             });
         })
     }
@@ -240,7 +240,6 @@ export default {
         display: flex;
         flex-direction: column;
         width: 100vw;
-        height: 700vh;
         overflow-x: hidden;
         overflow-y: auto;
         align-items: center;
@@ -249,7 +248,7 @@ export default {
     .title {
         width: 100vw;
         height: 65vh;
-        background-image: url("../assets/西安/3.jpg");
+        background-image: url("../assets/厦门/bg.jpg");
         background-size: cover;
         display: flex;
         flex-direction: column;

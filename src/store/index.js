@@ -12,14 +12,19 @@ const actions = {
 const mutations = {
     ChangeIfLogin(state, value) {
         state.isLoginFlag = value;
+        if(value == "false") state.currentUser = ""
     },
     ChangeIfHomeIsCity(state, value) {
         state.ifHomeIsCity = value;
+    },
+    AddUser(state, value) {
+        state.currentUser = value;
     }
 }
 const state = {
     isLoginFlag : "false",
-    ifHomeIsCity : "home"
+    ifHomeIsCity : false,
+    currentUser: ""
 }
 
 export default new Vuex.Store({

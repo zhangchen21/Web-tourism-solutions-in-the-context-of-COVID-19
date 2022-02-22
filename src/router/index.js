@@ -5,6 +5,7 @@ import More from "../components/More"
 import BeforeLog from "../components/BeforeLog"
 import Log from "../components/Login"
 import Xian from "../components/Xian"
+import Xiamen from "../components/Xiamen"
 
 export default new VueRouter({
     routes: [
@@ -36,6 +37,9 @@ export default new VueRouter({
             path: "/Xian",
             component: Xian
         },
-
+        {
+            path: "/Xiamen",
+            component: Xiamen
+        },
     ]
 })

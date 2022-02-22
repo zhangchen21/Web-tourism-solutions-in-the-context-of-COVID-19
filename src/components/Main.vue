@@ -4,10 +4,9 @@
         <div class="site-background">
             <h2>随时 & 随地</h2>
             <h1>都要盛装出席</h1>
-            <router-link to="/Xian" >
             <button class='btn1' @click="jumpToCity">
                 探索
-            </button></router-link>
+            </button>
         </div>
         </section>
     </main>
@@ -18,7 +17,16 @@ export default {
     name: "Main",
     methods: {
         jumpToCity() {
-            this.$store.commit('ChangeIfHomeIsCity', "city")
+            if(this.$store.state.currentUser == ""){
+                this.$message({
+                    message: '请先登录',
+                    type: 'warning'
+                });
+            }
+            else {
+                this.$store.commit('ChangeIfHomeIsCity', true)
+                window.location.href="http://localhost:8080/#/Xian"
+            }
         }
     }
 }

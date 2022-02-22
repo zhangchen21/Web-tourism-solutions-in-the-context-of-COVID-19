@@ -179,7 +179,10 @@ export default {
 
 <style scoped>
     .weather {
-        margin-left: 3rem;     
+        margin-left: 3rem;
+        display: flex;     
+        flex-direction: column;
+        align-items: center;
     }
     .weather .date {
         cursor: pointer;
